@@ -107,6 +107,11 @@ public class TopicController {
 
 
 
+    @GetMapping("/international")
+    public String getInternationalPage() {
+        return "international";
+    }
+
         }
 
 
