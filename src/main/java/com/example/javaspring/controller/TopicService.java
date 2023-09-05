@@ -21,7 +21,7 @@ public class TopicService<Keyword> {
         this.topicRepository = topicRepository;
     }
 
-    public List<Topic> getAllTopics() {
+    public List<Topic> getAllTopics(Pageable pageable) {
         return topicRepository.findAll();
     }
 

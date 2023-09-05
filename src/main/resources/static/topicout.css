@@ -1,0 +1,23 @@
+body {
+    display: grid;
+    grid-template-columns: 2fr  10fr;
+    grid-template-rows: 100px auto 250px;
+    grid-gap: 10px;
+    grid-template-areas:
+        "jonas jonas"
+        "a m"
+        "f f";
+}
+
+body > header {
+    grid-area: jonas;
+}
+body > aside {
+    grid-area: a;
+}
+body > main {
+    grid-area: m;
+}
+body > footer {
+    grid-area: f;
+}

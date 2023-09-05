@@ -1,4 +1,4 @@
-package config;
+package com.example.javaspring.config;
 
 
 import org.springframework.context.annotation.Bean;
@@ -38,4 +38,4 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(localeChangeInterceptor());
     }
 }
-//
+

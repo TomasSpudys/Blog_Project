@@ -1,0 +1,21 @@
+div {
+    color: rgb(0,255,0);
+}
+
+body > *{
+    border: 1px solid hotpink;
+    padding: 10px;
+}
+
+body > aside {
+    background-color: blue;
+}
+
+body > main {
+    background-color: springgreen;
+}
+
+body > footer {
+    background-color: #414141;
+    color: white;
+}

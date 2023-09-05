@@ -4,15 +4,18 @@ import com.example.javaspring.entity.Comment;
 import com.example.javaspring.entity.Topic;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.AttributedString;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.Optional;
-
 
 
 @Controller
@@ -20,25 +23,23 @@ import java.util.Optional;
 public class TopicController {
 
     private final TopicService topicService;
-
-    private  final CommentService commentService;
-
+    private final CommentService commentService;
 
 
     public TopicController(TopicService topicService, CommentService commentService) {
         this.topicService = topicService;
-
         this.commentService = commentService;
     }
 
 
-
     @GetMapping
-    public String getTopics(Model model) {
-        List<Topic> topics = topicService.getAllTopics();
-        model.addAttribute("topics", topics);
+    public String listTopics(Model model,@PageableDefault(sort = { "title"}, direction = Sort.Direction.DESC, size = 2, page = 1)
+    Pageable pageable) {
+        List<Topic> topics = topicService.getAllTopics(pageable);
+        model.addAttribute("topic", topics);
+        Page<Topic> topicsPage = topicService.findPaginated(pageable);
+        model.addAttribute("topics", topicsPage);
         return "topics";
-
     }
 
 
@@ -50,13 +51,14 @@ public class TopicController {
         model.addAttribute("topic", topic);
         return "topic";
     }
-        @PostMapping("/{id}")
-        public String addCommentToTopic(@PathVariable Long id, Comment comment, Model model) {
-            Topic topic = topicService.getTopic(id);
-            comment.setTopic(topic);
-            commentService.addCommentToTopic(comment);
 
-            return "redirect:/topics/" + id;
+    @PostMapping("/{id}")
+    public String addCommentToTopic(@PathVariable Long id, Comment comment, Model model) {
+        Topic topic = topicService.getTopic(id);
+        comment.setTopic(topic);
+        commentService.addCommentToTopic(comment);
+
+        return "redirect:/topics/" + id;
 
 
     }
@@ -74,45 +76,20 @@ public class TopicController {
         return "redirect:/topics";
     }
 
-        @GetMapping("/filter")
-        public String filterTopics (@RequestParam String keyword, Model model) {
-            List<Topic> topics = topicService.filterTopicsByKeyword(keyword);
-            model.addAttribute("topics", topics);
-            return "topics";
+    @GetMapping("/filter")
+    public String filterTopics(@RequestParam String keyword, Model model) {
+        List<Topic> topics = topicService.filterTopicsByKeyword(keyword);
+        model.addAttribute("topics", topics);
+        return "topics";
 
-        }
-
-            @GetMapping("/list")
-            public String listBooks(Model model, @RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size) {
-                final int currentPage = page.orElse(1);
-                final int pageSize = size.orElse(5);
-
-
-
-                Page<Topic> bookPage = topicService.findPaginated(PageRequest.of(currentPage - 1, pageSize));
-
-                model.addAttribute("topicPage", bookPage);
-
-                int totalPages = bookPage.getTotalPages();
-                if (totalPages > 0) {
-                    List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
-                            .boxed()
-                            .collect(Collectors.toList());
-                    model.addAttribute("pageNumbers", pageNumbers);
-                }
-
-                return "listTopics";
-
-        }
-
-
+    }
 
     @GetMapping("/international")
     public String getInternationalPage() {
         return "international";
     }
 
-        }
+}
 
 
 
