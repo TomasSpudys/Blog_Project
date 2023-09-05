@@ -6,21 +6,21 @@
     <script type="text/javascript" th:src="@{/scripts.js}" defer></script>
     <link rel="stylesheet" th:href="@{/topicdesign.css}">
 
-            <h1 th:rel="stylesheet" href="@{/static/topicmeniu.css}"><h1>
-              <h1 th:rel="stylesheet" href="@{/static/topicout.css}"></h1>
+    <link rel="stylesheet" th:href="@{/static/topicmeniu.css}">
+    <link rel="stylesheet" th:href="@{/static/topicout.css}">
 
 
 <body>
 <header>
     <div>LOGO</div>
     <nav>
-        <h1 th:text:="${'Sveiki' +param.name }">
+        <h1 th:text:="@{'Sveiki' +param.name }">
             Sveiki atvyke video i ebiblioteka!
             <h1 th:title="Svetaines pavadinimas"></h1>
 
 
         </h1>
-        </nav>
+    </nav>
 
 
 </header>
@@ -30,18 +30,18 @@
 </aside>
 
 <main>
-    <img th:src=" logo.png"/>
-    <img th:src="img/logo.png"/>
-    <img th:src="/img/logo.png" alt=""/>
-    <a th:href="img/logo.png"/>Logo</a>
+
+    <img th:src="@{/img/logo.png}"/>
+    <a th:href="@{ing/logo.png/}">Logo</a>
+
     <div class="Knygos">
 
     </div>
 
 
-    <p>
-    <p>
-        Elektroninės bibliotekos informacinė sistema (toliau – eBiblioteka) – tai elektroninė biblioteka, kurioje
+
+
+    <p>  Elektroninės bibliotekos informacinė sistema (toliau eBiblioteka)  tai elektroninė biblioteka, kurioje
         kaupiami ir viešai prieigai teikiami mokslo ir studijų dokumentai ir / arba jų metaduomenys.
 
         eBibilioteka sudaro:
@@ -53,22 +53,20 @@
         statistikos duomenų bazė;
         dokumentų atspaudų duomenų bazė;
         eBiblioteka administracinių duomenų bazė;
-        Knygu duoenu baze;
-    </p>
+        Knygu duoenu baze </p>
+
 </main>
 <footer>
 
+
     <h4>
-        <th: href="/index.html">Home</th:>
+        <a th:href="@{/about.html}">About us</a>
+
+    <h4>
+        <a th:href="@{/Books.html}">Books</a>
     </h4>
     <h4>
-        <th: href="/about.html">About us</th:>
-    </h4>
-    <h4>
-        <th: href="/Books.html">Books</th:>
-    </h4>
-    <h4>
-        <th: href="/contacts.html">Contact us</th:>
+        <th:href="@{/contacts.html}">Contact us</th:>
     </h4>
 
     <div> All rights reserved 2023</div>

@@ -6,41 +6,41 @@
 <body>
 
 <header th:fragment="header" class="p-3 bg-dark text-white">
+<script class="tex/javascript" th:src="@{/scripts.js}" defer></script>
+<img th:src="@{/logo.png}"/>
 
-    <script class="tex/javascript" th:src="@{/scripts.js}" defer></script>
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <a href="/static" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+        </svg>
+    </a>
 
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/static" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap"></use>
-            </svg>
-        </a>
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">Contact</a></li>
+    </ul>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-        </ul>
+        Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required/>
+        <input type="submit" value="Search"/>
+    </form>
 
-        <form th:action="@{/topics/filter}">
-            Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required/>
-            <input type="submit" value="Search"/>
-        </form>
-
-        <button class="dropdown-item" type="button" onclick="setLanguage('fr')" th:text="#{lang.fr}"></button>
-        <button class="dropdown-item" type="button" onclick="setLanguage('en')" th:text="#{lang.eng}"></button>
-        <button class="dropdown-item" type="button" onclick="setLanguage('lt')" th:text="#{lang.lt}"></button>
-        <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2" th:text="#{Login}">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
-            <button type="button" class="btn btn-warning" th:text="#{Signup}">Sign-up</button>
-        </div>
+    <button class="dropdown-item" type="button" onclick="setLanguage('fr')" th:text="#{lang.fr}"></button>
+    <button class="dropdown-item" type="button" onclick="setLanguage('en')" th:text="#{lang.eng}"></button>
+    <button class="dropdown-item" type="button" onclick="setLanguage('lt')" th:text="#{lang.lt}"></button>
+    <div class="text-end">
+        <button type="button" class="btn btn-outline-light me-2" th:text="#{Login}">Login</button>
+        <button type="button" class="btn btn-warning">Sign-up</button>
+        <button type="button" class="btn btn-warning" th:text="#{Signup}">Sign-up</button>
     </div>
+</div>
 
 </header>
-
+<main>
 <footer th:fragment="footer" class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
@@ -48,9 +48,16 @@
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-    </ul>
-    <p class="text-center text-muted">© 2021 Company, Inc</p>
-</footer>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
 
+
+    </ul>
+
+    <p class="text-center text-muted">© 2021 Company, Inc</p>
+
+</footer>
+</main>
 </body>
+
+
 </html>
