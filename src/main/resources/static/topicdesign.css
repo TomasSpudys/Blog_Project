@@ -1,21 +1,93 @@
-div {
-    color: rgb(0,255,0);
+
+body {
+
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("images/E_Biblioteka.jpg");
 }
 
-body > *{
-    border: 1px solid hotpink;
-    padding: 10px;
+.item1 {
+    grid-area: logo;
+    text-align: center;
 }
 
-body > aside {
-    background-color: blue;
+.item2{
+    grid-area:header;
+    text-align: right;
+    text-combine-upright: all;
+    padding:20px 0;
+    font-size:20px;
 }
+    .item3{
+        grid-area: sectionTop;
+        text-align: center;
+    }
+    .item4{
+        grid-area: navigatio_area;
+        text-align:left;
+        font-size:20px;
+    }
+    .item5{
+        grid-area: content_area;
+        text-align: center;
+    }
+    .item5:hover img{
+        width: 100%;
+        transition:05s all ease-in-out;
+    }
+    .item5:hover img {
+        transform: scale(1.5);
+    }
+    .item8{
+        grid-area: ad;
+        text-align: left;
+    }
+    .item10{
+        grid-area:footer ;
+        text-align: justify;
+        padding:20px 0;
+        front-size: 15px;
+        vartical-align: bottom;
+    }
+    .item11{
+        grid-area: footer3;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 15% 70% 15%;
+        grid-template-rows:90px 50px auto;
+        grid-template-areas:
+        'logo header header'
+        'sectionTop sectionTop sectionTop'
+        'navigatio-area content_area ad'
+        'navigatio-area content_area ad'
+        'navigatio-area footer footer3';
+        gap: 10px;
+        padding: 10px;
+    }
+.grid-container>div{
+    border:1px solid black;
+    paidding: 20px 0;
+}
+    .box1 {
+        width: 300px;
+        hight: 5px;
+        border: none;
+        position: absolute;
+        top: 60px;
+        right: 1%;
+    {
+        .box2 {
+            width: 200px;
+            hight: 50px;
+            border: none;
+            position: absolute;
+            top: 30px;
+            left: 5%;
+            font-size: 30px;
+        }
+    }
+    }
 
-body > main {
-    background-color: springgreen;
-}
-
-body > footer {
-    background-color: #414141;
-    color: white;
-}
