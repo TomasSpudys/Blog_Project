@@ -33,7 +33,7 @@ public class TopicController {
 
 
     @GetMapping
-    public String listTopics(Model model,@PageableDefault(sort = { "title"}, direction = Sort.Direction.DESC, size = 2, page = 1)
+    public String listTopics(Model model, @PageableDefault(sort = {"title"}, direction = Sort.Direction.DESC, size = 2, page = 1)
     Pageable pageable) {
         List<Topic> topics = topicService.getAllTopics(pageable);
         model.addAttribute("topic", topics);
@@ -90,6 +90,7 @@ public class TopicController {
     }
 
 }
+
 
 
 

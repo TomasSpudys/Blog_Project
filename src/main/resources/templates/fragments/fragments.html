@@ -9,6 +9,7 @@
 <body>
 
 <header th:fragment="header" class="p-3 mb-2 bg-secondary text-white">
+
 <script class="tex/javascript" th:src="@{/scripts.js}" defer></script>
 <img th:src="@{/logo.png}"/>
 
@@ -37,8 +38,9 @@
     <button class="dropdown-item" type="button" onclick="setLanguage('lt')" th:text="#{lang.lt}"></button>
     <div class="text-end">
         <button type="button" class="btn btn-outline-light me-2" th:text="#{Login}">Login</button>
-        <button type="button" class="btn btn-warning">Sign-up</button>
         <button type="button" class="btn btn-warning" th:text="#{Signup}">Sign-up</button>
+
+
     </div>
 </div>
 

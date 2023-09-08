@@ -62,5 +62,9 @@ public class TopicService<Keyword> {
         return topicPage;
     }
 
+    public String throwException() {
+        return null;
     }
+
+}
 
