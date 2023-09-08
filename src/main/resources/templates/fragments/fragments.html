@@ -13,6 +13,7 @@
 <script class="tex/javascript" th:src="@{/scripts.js}" defer></script>
 <img th:src="@{/logo.png}"/>
 
+
 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
     <a href="/static" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
         <svg class="bi me-2" width="350" height="10" role="img" aria-label="Bootstrap">
@@ -25,8 +26,8 @@
         <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
         <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Contact</a></li>
+        <li><a href="/topics/international" class="nav-link px-2 text-white">About</a></li>
+        <li><a href="/topics/pages" class="nav-link px-2 text-white">Contact</a></li>
     </ul>
 
         Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required/>
@@ -37,8 +38,8 @@
     <button class="dropdown-item" type="button" onclick="setLanguage('en')" th:text="#{lang.eng}"></button>
     <button class="dropdown-item" type="button" onclick="setLanguage('lt')" th:text="#{lang.lt}"></button>
     <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2" th:text="#{Login}">Login</button>
-        <button type="button" class="btn btn-warning" th:text="#{Signup}">Sign-up</button>
+        <button onclick="window.location.href='/login';" type="button" class="btn btn-outline-light me-2" th:text="#{Login}">Login</button>
+        <button onclick="window.location.href='/logout';" type="button" class="btn btn-warning" th:text="#{Signup}">Sign-up</button>
 
 
     </div>

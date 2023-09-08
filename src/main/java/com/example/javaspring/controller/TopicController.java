@@ -88,6 +88,10 @@ public class TopicController {
     public String getInternationalPage() {
         return "international";
     }
+    @GetMapping("/pages")
+    public String getIPages() {
+        return "pages";
+    }
 
 }
 
