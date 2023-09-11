@@ -9,10 +9,18 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import com.example.javaspring.service.UserService;
+
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
+	private final UserService userService;
+
+	public WebSecurityConfig(UserService userService) {
+		this.userService = userService;
+	}
+
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -30,6 +38,10 @@ public class WebSecurityConfig {
 					.permitAll()
 					.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 					.logoutSuccessUrl("/login");
+
+		http.csrf().disable();
+		http.headers().frameOptions().disable();
+
 		return http.build();
 	}
 

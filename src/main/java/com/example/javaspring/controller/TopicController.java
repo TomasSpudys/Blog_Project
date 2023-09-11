@@ -3,7 +3,6 @@ package com.example.javaspring.controller;
 import com.example.javaspring.entity.Comment;
 import com.example.javaspring.entity.Topic;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -11,11 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.AttributedString;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.Optional;
 
 
 @Controller
@@ -84,13 +79,13 @@ public class TopicController {
 
     }
 
-    @GetMapping("/international")
-    public String getInternationalPage() {
-        return "international";
+    @GetMapping("/about")
+    public String getAbout() {
+        return "about";
     }
-    @GetMapping("/pages")
-    public String getIPages() {
-        return "pages";
+    @GetMapping("/contact")
+    public String getContact() {
+        return "contact";
     }
 
 }
