@@ -6,6 +6,16 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("images/E_Biblioteka.jpg");
+
+.pagination a.active {
+    background-color: #0a87da;
+    color: #5bd8e3;
+    border-radius: 20px;
+}
+    & table, & th, & td {
+        border:1px solid black;
+    }
+</style>
 }
 
 .item1 {

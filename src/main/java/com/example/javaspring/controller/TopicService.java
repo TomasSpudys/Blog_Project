@@ -66,5 +66,7 @@ public class TopicService<Keyword> {
         return null;
     }
 
+    public void deleteTopic(Long id) {
+        topicRepository.deleteById(id);
+    }
 }
-

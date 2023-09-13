@@ -64,6 +64,13 @@ public class TopicController {
         return "addTopic";
     }
 
+    @DeleteMapping("/delete/{id}")
+    public String deleteTopic(@PathVariable Long id) {
+        topicService.deleteTopic(id);
+        return "redirect:/topics";
+    }
+
+
     @PostMapping
     public String addNewTopics(Topic newTopic, Model model) {
         Topic savedTopic = topicService.addNewTopic(newTopic);

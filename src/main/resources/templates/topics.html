@@ -48,6 +48,12 @@
             <td th:text="${topic.title}"></td>
             <td th:text="${topic.header}"></td>
             <td>
+                <form action="#" th:action="@{/topics/delete/{id}(id=${topic.id})}" th:object="${topic}"
+                      method="post" class="form">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="submit" value="Delete Topic">
+
+                </form>
                 <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{View}">view</a>
                 <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Features}">features</a>
                 <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Pricing}">pricing</a>
@@ -56,6 +62,7 @@
                 <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Filter}">filter</a>
                 <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Contact}">contact</a>
                 <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Signup}">signup</a>
+                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Delete}">delete</a>
             </td>
         </tr>
       </tbody>
@@ -69,7 +76,6 @@
 
     <h1>New topic submission form</h1>
     <a th:href="@{/topics/add}">Go to Create Topic Form page </a>
-
 
 </main>
 
