@@ -1,84 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Book Topics</title>
-    <link rel="stylesheet" th:href="@{topicdesign.css}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{images/topicdesign.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
 
-<style>
-    .pagination {
-        display: inline-block;
-    }
+    <style>
 
-    .pagination a {
-        color: black;
-        float: left;
-        padding: 5px 5px;
-        text-decoration: none;
-    }
+        .pagination {
+            display: inline-block;
+        }
 
-    .pagination a.active {
-        background-color: gray;
-        color: white;
-        border-radius: 2px;
-    }
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 5px 5px;
+            text-decoration: none;
+        }
+
+        .pagination a.active {
+            background-color: gray;
+            color: white;
+            border-radius: 2px;
+        }
     </style>
 </head>
 
-<body style="min-height: 100vh">
 
 <header th:insert="fragments/fragments.html :: header"></header>
 
+<body style="min-height: 100vh">
+
 <main>
+
+
+
     <div class="container mt-5 mb-1">
 
-        <thead>
         <tr>
-            <th scope="col">#</th>
+
             <th scope="col" th:text="#{Title}">Title</th>
             <th scope="col" th:text="#{Header}">Header</th>
             <th scope="col" th:text="#{Action}">Action</th>
         </tr>
-        </thead>
-      <tbody>
-        <tr th:each="topic, i: *{topics}">
-            <th scope="row" th:text="${topics.getPageable().getPageNumber() * topics.getPageable().getPageSize() + i.index + 1}"></th>
-            <td th:text="${topic.title}"></td>
-            <td th:text="${topic.header}"></td>
-            <td>
+    </div>
+
+    <div th:each="topic, i: *{topics}">
+        <th scope="row"
+            th:text="${topics.getPageable().getPageNumber() * topics.getPageable().getPageSize() + i.index + 1}"></th>
+        <td th:text="${topic.title}"></td>
+        <td th:text="${topic.header}"></td>
+        <td>
+            <div sec:authorize="hasAnyAuthority( 'USER' )">
                 <form action="#" th:action="@{/topics/delete/{id}(id=${topic.id})}" th:object="${topic}"
                       method="post" class="form">
                     <input type="hidden" name="_method" value="delete">
                     <input type="submit" value="Delete Topic">
 
-                </form>
-                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{View}">view</a>
-                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Features}">features</a>
-                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Pricing}">pricing</a>
-                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{FAQs}">FAQs</a>
-                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{About}">abouts</a>
-                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Filter}">filter</a>
-                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Contact}">contact</a>
-                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Signup}">signup</a>
-                <a class="btn btn-secondary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Delete}">delete</a>
-            </td>
-        </tr>
-      </tbody>
 
-    <div th:if="${topics.totalPages > 0}" class="pagination" th:each="pageNumber : ${pageNumbers}">
-        <a th:href="@{/topics(size=${topics.size}, page=${pageNumber})}"
-           th:text="${pageNumber + 1}"
-           th:class="${pageNumber==topics.number} ? active"></a>
+                </form>
+            </div>
+
+
+        </td>
+        <div th:if="${topics.totalPages > 0}" class="pagination" th:each="pageNumber : ${pageNumbers}">
+            <a th:href="@{/topics(size=${topics.size}, page=${pageNumber})}"
+               th:text="${pageNumber + 1}"
+               th:class="${pageNumber==topics.number} ? active"></a>
+
+        </div>
+
 
     </div>
-
     <h1>New topic submission form</h1>
     <a th:href="@{/topics/add}">Go to Create Topic Form page </a>
 
 </main>
-
-<footer th:insert="fragments/fragments.html :: footer"> </footer>
+<footer th:insert="fragments/fragments.html :: footer"></footer>
 </body>
 </html>

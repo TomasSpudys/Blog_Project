@@ -4,6 +4,7 @@ import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 
 
 import java.util.ArrayList;
@@ -24,5 +25,6 @@ public class Topic {
 
     @OneToMany(mappedBy = "topic", orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
+
 
 }
