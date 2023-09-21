@@ -6,6 +6,7 @@
     <title>Book Topic</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
 </head>
 <body class="d-flex flex-column min-vh-100">
 <header th:insert="fragments/fragments.html :: header"> </header>
@@ -19,10 +20,10 @@
                 <div class="card-header" th:text="${comment?.createdBy?.username}"></div>
                 <div class="card-body">
                     <p class="card-text" th:text="${comment.text}"></p>
-                    <div sec:authorize="hasAnyAuthority( 'USER' )">
-                        <form action="#" th:action="@{/topics/delet/{id}(id=${topic.id})}" th:object="${topics}"
+                    <div sec:authorize="hasAnyAuthority( 'USER',ADMIN )">
+                        <form action="#" th:action="@{/topics/comment/{id}(id=${comment.id})}" th:object="${topics}"
                               method="post" class="form">
-                            <input class="btn btn-danger" type="submit" th:value="deletComment">
+                            <input class="btn btn-danger" type="submit" th:value="deleteComment">
 
                         </form>
                     </div>
