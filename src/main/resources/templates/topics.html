@@ -61,8 +61,6 @@
 
             </form>
 
-
-
         </td>
         <div th:if="${topics.totalPages > 0}" class="pagination" th:each="pageNumber : ${pageNumbers}">
             <a th:href="@{/topics(size=${topics.size}, page=${pageNumber})}"
@@ -71,7 +69,7 @@
 
         </div>
 
-        <a class="btn btn-primary" th:href="@{/topics/{id}(id=${topic.id})}" th:text="#{Comments}">View</a>
+        <a class="btn btn-primary" th:href="@{/topics/view/{id}(id=${topic.id})}" th:text="#{Comments}">View</a>
     </div>
     <h1>New topic submission form</h1>
     <a th:href="@{/topics/add}">Go to Create Topic Form page </a>

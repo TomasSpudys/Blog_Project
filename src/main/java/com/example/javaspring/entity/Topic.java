@@ -1,6 +1,8 @@
 package com.example.javaspring.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,12 +16,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+
 public class Topic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotEmpty(message = "can not be emty")
     private String title;
     private String header;
 

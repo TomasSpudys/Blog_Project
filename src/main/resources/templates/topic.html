@@ -20,7 +20,7 @@
                 <div class="card-header" th:text="${comment?.createdBy?.username}"></div>
                 <div class="card-body">
                     <p class="card-text" th:text="${comment.text}"></p>
-                    <div sec:authorize="hasAnyAuthority( 'USER',ADMIN )">
+                    <div sec:authorize="hasAnyAuthority( 'USER' )">
                         <form action="#" th:action="@{/topics/comment/{id}(id=${comment.id})}" th:object="${topics}"
                               method="post" class="form">
                             <input class="btn btn-danger" type="submit" th:value="deleteComment">

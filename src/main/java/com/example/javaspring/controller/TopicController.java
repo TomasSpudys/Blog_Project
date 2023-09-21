@@ -8,8 +8,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -38,7 +40,7 @@ public class TopicController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/view/{id}")
     public String getTopic(@PathVariable Long id, Model model) {
         model.addAttribute("id", id);
         model.addAttribute("comment", new Comment());
@@ -59,8 +61,8 @@ public class TopicController {
     }
 
     @GetMapping("/add")
-    public String getAddTopicForm(Model model) {
-        model.addAttribute("newTopic", new Topic());
+    public String getAddTopicForm(Topic topic) {
+//        model.addAttribute("newTopic", new Topic());
         return "addTopic";
     }
 
@@ -75,11 +77,16 @@ public class TopicController {
         return "redirect:/topics";
     }
 
-    @PostMapping
-    public String addNewTopics(Topic newTopic, Model model) {
+    @PostMapping("/add")
+    public String addNewTopics(@Valid Topic newTopic, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "addTopic";
+        }
         Topic savedTopic = topicService.addNewTopic(newTopic);
-        topicService.addNewTopic(newTopic);
+
+
         return "redirect:/topics";
+
     }
 
     @GetMapping("/filter")
