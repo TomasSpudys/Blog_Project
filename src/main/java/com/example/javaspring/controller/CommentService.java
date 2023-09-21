@@ -16,4 +16,6 @@ public class CommentService {
     public void addCommentToTopic(Comment comment) {commentRepository.save(comment);
 
     }
+    public void deleteComment(Long id) {commentRepository.deleteById(id);
+    }
 }

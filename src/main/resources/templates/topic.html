@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-       data-bs-theme="dark" lang="en">  lang="en"
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      data-bs-theme="dark" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Book Topic</title>
@@ -19,7 +19,13 @@
                 <div class="card-header" th:text="${comment?.createdBy?.username}"></div>
                 <div class="card-body">
                     <p class="card-text" th:text="${comment.text}"></p>
-                    <a href="#" class="btn btn-primary">Do some action</a>
+                    <div sec:authorize="hasAnyAuthority( 'USER' )">
+                        <form action="#" th:action="@{/topics/delet/{id}(id=${topic.id})}" th:object="${topics}"
+                              method="post" class="form">
+                            <input class="btn btn-danger" type="submit" th:value="deletComment">
+
+                        </form>
+                    </div>
 </div>
             </div>
         </div>
@@ -38,27 +44,6 @@
         <input type="reset" value="Reset" />
     </p>
 </form>
-    <div class="container">
-        <table>
-            <tr th:each="var : ${#vars.getVariableNames()}">
-                <td th:text="${var}"></td>
-                <td th:text="${#vars.getVariable(var)}"></td>
-            </tr>
-            <tr>
-                <td>param</td>
-                <td th:text="${#vars.getVariable('param')}"></td>
-            </tr>
-            <tr>
-                <td>session</td>
-                <td th:text="${#vars.getVariable('session')}"></td>
-            </tr>
-            <tr>
-                <td>application</td>
-                <td th:text="${#vars.getVariable('application')}"></td>
-            </tr>
-        </table>
-    </div>
-
 
 
 <a th:href="@{/topics}">Got to List all topics page</a>

@@ -64,12 +64,16 @@ public class TopicController {
         return "addTopic";
     }
 
-    @DeleteMapping("/delete/{id}")
+    @PostMapping("/delete/{id}")
     public String deleteTopic(@PathVariable Long id) {
         topicService.deleteTopic(id);
         return "redirect:/topics";
     }
-
+    @PostMapping("/comment/{id}")
+    public String deleteComment(@PathVariable Long id) {
+        commentService.deleteComment(id);
+        return "redirect:/topics";
+    }
 
     @PostMapping
     public String addNewTopics(Topic newTopic, Model model) {

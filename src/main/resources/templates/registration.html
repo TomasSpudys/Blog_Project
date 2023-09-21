@@ -24,12 +24,12 @@
     </div>
     <div>
         <label for="password">Password:</label>
-            <input type="text"
-                   th:field="*{password}" id="password" placeholder="Enter password">
-            <ul>
-                <li th:each="err : ${#fields.errors('password')}" th:text="${err}"
-                    class="error"/>
-            </ul>
+        <input type="text"
+               th:field="*{password}" id="password" placeholder="Enter password">
+        <ul>
+            <li th:each="err : ${#fields.errors('password')}" th:text="${err}"
+                class="error"/>
+        </ul>
     </div>
 
     <div><input type="submit" value="Register"/></div>

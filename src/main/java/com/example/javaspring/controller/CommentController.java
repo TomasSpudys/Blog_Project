@@ -1,14 +1,9 @@
 package com.example.javaspring.controller;
 
-import javax.persistence.*;
 
 import com.example.javaspring.entity.Comment;
 import com.example.javaspring.entity.Topic;
 import com.example.javaspring.entity.User;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
