@@ -55,8 +55,7 @@ public class TopicController {
         comment.setTopic(topic);
         commentService.addCommentToTopic(comment);
 
-        return "redirect:/topics/" + id;
-
+        return "redirect:/topics/view/"+ id;
 
     }
 

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Book Topics</title>
-    <link rel="stylesheet" th:href="@{images/topicdesign.css}"><link>
+    <link rel="stylesheet" th:href="@{/images/topicdesign.css}">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -55,10 +56,10 @@
         <td th:text="${topic.title}"></td>
         <td th:text="${topic.header}"></td>
         <td>
+
             <form action="#" th:action="@{/topics/delete/{id}(id=${topic.id})}" th:object="${topic}"
                   method="post" class="form">
-                <input class="btn btn-danger" type="submit" th:value="deleteTopic">
-
+                <input class="btn btn-danger" type="submit" th:value="deleteTopics">
             </form>
 
         </td>
@@ -67,10 +68,11 @@
                th:text="${pageNumber + 1}"
                th:class="${pageNumber==topics.number} ? active"></a>
 
-        </div>
 
+        </div>
         <a class="btn btn-primary" th:href="@{/topics/view/{id}(id=${topic.id})}" th:text="#{Comments}">View</a>
     </div>
+
     <h1>New topic submission form</h1>
     <a th:href="@{/topics/add}">Go to Create Topic Form page </a>
 
