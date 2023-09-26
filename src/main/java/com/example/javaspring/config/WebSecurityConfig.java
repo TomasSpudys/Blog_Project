@@ -33,7 +33,7 @@ public class WebSecurityConfig {
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .successForwardUrl("/topics")
+                .successForwardUrl("/hello")
                 .and()
                 .logout()
                 .permitAll()

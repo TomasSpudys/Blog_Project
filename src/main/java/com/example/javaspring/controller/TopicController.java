@@ -55,7 +55,7 @@ public class TopicController {
         comment.setTopic(topic);
         commentService.addCommentToTopic(comment);
 
-        return "redirect:/topics/view/"+ id;
+        return "redirect:/topics/view/" + id;
 
     }
 
@@ -70,10 +70,12 @@ public class TopicController {
         topicService.deleteTopic(id);
         return "redirect:/topics";
     }
+
     @PostMapping("/comment/{id}")
     public String deleteComment(@PathVariable Long id) {
+        long topicId=commentService.getCommentById(id).getTopic().getId();
         commentService.deleteComment(id);
-        return "redirect:/topics";
+        return "redirect:/topics/view/" + topicId;
     }
 
     @PostMapping("/add")
@@ -82,7 +84,6 @@ public class TopicController {
             return "addTopic";
         }
         Topic savedTopic = topicService.addNewTopic(newTopic);
-
 
         return "redirect:/topics";
 
@@ -100,16 +101,28 @@ public class TopicController {
     public String getAbout() {
         return "about";
     }
+
     @GetMapping("/contact")
     public String getContact() {
         return "contact";
     }
 
+    @GetMapping("/booking")
+    public String getTop() {
+        return "booking";
+
+
+    }
+
+    @PostMapping("/booking")
+    public String addNewTopic(@Valid Topic topic, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "booking";
+        }
+        topicService.addNewTopic(topic);
+        return "redirect:/topics";
+    }
 }
-
-
-
-
 
 
 

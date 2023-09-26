@@ -23,6 +23,8 @@
             <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
             <li><a href="/topics/about" class="nav-link px-2 text-white">About</a></li>
             <li><a href="/topics/contact" class="nav-link px-2 text-white">Contact</a></li>
+
+
         </ul>
         <form>
             Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required/>
@@ -32,6 +34,8 @@
             <button th:text="#{lang.eng}" class="btn btn-dark dropdown-toggle me-2" type="button" id="langSelectBtn"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 EN
+
+
             </button>
 
             <ul class="dropdown-menu dropdown-menu-primary" aria-labelledby="langSelectBtn">
@@ -40,31 +44,27 @@
                 <li><a class="dropdown-item" onclick="setLanguage('lt')" th:text="#{lang.lt}"></a></li>
             </ul>
 
-                    <div class="text-end">
-                        <button onclick="window.location.href='/login';" type="button"
-                                class="btn btn-outline-light me-2" th:text="#{Register}">Register
-                        </button>
-                        <button onclick="window.location.href='/login';" type="button"
-                                class="btn btn-outline-light me-2" th:text="#{Login}">Login
-                        </button>
-                        <form th:action="@{/logout}" method="post">
-                            <button type="submit" class="btn btn-warning" th:text="#{Logout}">Sign-up</button>
-                        </form>
+            <div class="text-end">
+                <button onclick="window.location.href='/login';" type="button"
+                        class="btn btn-outline-light me-2" th:text="#{Register}">Register
+                </button>
+                <button onclick="window.location.href='/login';" type="button"
+                        class="btn btn-outline-light me-2" th:text="#{Login}">Login
+                </button>
 
-                    </div>
-                </div>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="btn btn-warning" th:text="#{Logout}">Sign-up</button>
+                </form>
 
+            </div>
+
+        </div>
 
 </header>
 <footer th:fragment="footer" class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
-
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/topics/about" class="nav-link px-2 text-white">About</a></li>
+        <li><a href="/topics/contact" class="nav-link px-2 text-white">Contact</a></li>
 
     </ul>
 

@@ -35,7 +35,7 @@
 
 <header th:insert="fragments/fragments.html :: header"></header>
 
-<body style="min-height: 100vh">
+<body style=" color:blue">
 
 
 <main>
@@ -68,11 +68,17 @@
                th:text="${pageNumber + 1}"
                th:class="${pageNumber==topics.number} ? active"></a>
 
-
         </div>
         <a class="btn btn-primary" th:href="@{/topics/view/{id}(id=${topic.id})}" th:text="#{Comments}">View</a>
     </div>
+    <div>
 
+    <buttom  class="btn btn-warning">
+        <a href="/topics" class="nav-link px-2 text-white"></a>
+        <li><a href="/topics/top" class="nav-link px-2 text-white">Booking</a></li>
+    </buttom>
+
+        </div>
     <h1>New topic submission form</h1>
     <a th:href="@{/topics/add}">Go to Create Topic Form page </a>
 

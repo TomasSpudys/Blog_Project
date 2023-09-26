@@ -26,7 +26,7 @@ public class TestController {
 
     @PostMapping("/hello")
     public String hello() {
-        return "hello";
+        return "redirect:/topics";
     }
 
     @GetMapping("/hello")
