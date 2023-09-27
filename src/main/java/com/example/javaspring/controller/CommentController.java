@@ -26,7 +26,7 @@ public class CommentController {
     @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping
     public String addCommentToTopic(@AuthenticationPrincipal User user, Long id, Comment comment, Model model) {
-       Topic topic = topicService.getTopic(id);
+        Topic topic = topicService.getTopic(id);
         comment.setCreatedBy(user);
         comment.setTopic(topic);
         commentService.addCommentToTopic(comment);

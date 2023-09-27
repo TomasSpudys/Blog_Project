@@ -73,7 +73,7 @@ public class TopicController {
 
     @PostMapping("/comment/{id}")
     public String deleteComment(@PathVariable Long id) {
-        long topicId=commentService.getCommentById(id).getTopic().getId();
+        long topicId = commentService.getCommentById(id).getTopic().getId();
         commentService.deleteComment(id);
         return "redirect:/topics/view/" + topicId;
     }

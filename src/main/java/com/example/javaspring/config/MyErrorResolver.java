@@ -1,6 +1,7 @@
 package com.example.javaspring.config;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorViewResolver;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -15,9 +16,10 @@ public class MyErrorResolver implements ErrorViewResolver {
 
     /**
      * resolveErrorView - can be used to route user to specific error view
+     *
      * @param request - request to error page (processed by Spring)
-     * @param status - spring resolved http response status
-     * @param model - some unmodifiable map, provided by Spring and containing basic info about the error (timestamp, status, etc..)
+     * @param status  - spring resolved http response status
+     * @param model   - some unmodifiable map, provided by Spring and containing basic info about the error (timestamp, status, etc..)
      * @return
      */
     @Override

@@ -13,13 +13,14 @@ public class TestController {
     public String login() {
         return "login";
     }
+
     @PostMapping(value = "/login")
     public String loginPost() {
         return "redirect:/login";
 
     }
 
-    @RequestMapping({ "/home", "/" })
+    @RequestMapping({"/home", "/"})
     public String home() {
         return "home";
     }
@@ -34,11 +35,12 @@ public class TestController {
         return "hello";
     }
 
-    @PostMapping ("/logout")
+    @PostMapping("/logout")
     public String logoutTest() {
         return "hello";
     }
-    @GetMapping ("/logout")
+
+    @GetMapping("/logout")
     public String logout() {
         return "hello";
     }

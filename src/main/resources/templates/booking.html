@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact</title>
-    <link rel="stylesheet" th:href="@{images/topicdesign.css}"><link>
+    <link rel="stylesheet" th:href="@{images/topicdesign.css}">
+    <link>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -68,26 +69,23 @@
         <p>
             <label for="fexp">Expiration date:*</label>
             <input name="expDate" type="text" id="fexp" value="dd/mm/yy, --:--" required/>
+        <hr>
+        <p>
+            <input value="Validate the payment" type="submit"/>
         </p>
+            <label for="chkBox">Agree with terms and conditions</label>
+            <input name="chkBox" type="checkbox" id="chkBox" required/>
+
+
     </ul>
-    <hr>
-    <label for="chkBox">Agree with terms and conditions</label>
-    <input name="chkBox" type="checkbox" id="chkBox" required/>
-    <br>
-    <p>
-        <input value="Validate the payment" type="submit"/>
-    </p>
 </form>
- <buttom  class="btn btn-warning">
-    <a href="/topics" class="nav-link px-2 text-white"></a>
-    <li><a href="/topics/booking" class="nav-link px-2 text-white">Booking</a></li>
-</buttom>
+
 </tr>
 </body>
 <footer>
- <p th:insert="fragments/fragments.html :: footer"></p>
-</footer>
 
-    <p class="text-center text-muted">© 2021 Company, Inc</p>
+</footer>
+<p th:insert="fragments/fragments.html :: footer"></p>
+
 
 </html>

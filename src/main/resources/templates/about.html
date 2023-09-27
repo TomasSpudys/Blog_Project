@@ -9,12 +9,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"></script>
-    <buttom  class="btn btn-warning">
+    <buttom class="btn btn-warning">
         <li><a href="/topics" class="nav-link px-2 text-white">Topics</a></li>
         <a th:href="@{/topics}"></a>
     </buttom>
 
-    <style>
+    <style img th:src="@{/images/page.jpg}"/>
+
+
 
         .pagination a. {
             display: inline-block;
@@ -38,73 +40,79 @@
 <header th:insert="fragments/fragments.html :: header"></header>
 <aside>
 
-<main>
+    <main>
 
-<body>
+        <body>
 
-<div>
-    <p>
-    <div> <h1>Welcome our site</h1> </div>
-    Elektroninės bibliotekos informacinė sistema (toliau – eBiblioteka) – tai  elektroninė biblioteka, kurioje kaupiami ir viešai prieigai teikiami mokslo ir studijų dokumentai ir  arba jų metaduomenys.
-    eBibilioteka sudaro :
-    eBibilioteka tvarkytojų mokslo ir studijų dokumentų metaduomenų bazė;
-    eBiblioteka naudotojų duomenų bazė;
-    Lietuvos elektroninių tezių ir disertacijų duomenų bazė (ETD);
-    Lietuvos mokslo (meno) ir studijų publikacijų duomenų bazė (PDB);
-    elektroninių objektų talpykla;
-    statistikos duomenų bazė;
-    dokumentų atspaudų duomenų bazė;
-    eBiblioteka administracinių duomenų bazė;
-    Knygu duoenu baze ;
-    </p>
+        <div>
+            <p>
+            <div><h1>Welcome our site</h1></div>
+            Elektroninės bibliotekos informacinė sistema (toliau – eBiblioteka) – tai elektroninė biblioteka, kurioje
+            kaupiami ir viešai prieigai teikiami mokslo ir studijų dokumentai ir arba jų metaduomenys.
+            eBibilioteka sudaro :
+            eBibilioteka tvarkytojų mokslo ir studijų dokumentų metaduomenų bazė;
+            eBiblioteka naudotojų duomenų bazė;
+            Lietuvos elektroninių tezių ir disertacijų duomenų bazė (ETD);
+            Lietuvos mokslo (meno) ir studijų publikacijų duomenų bazė (PDB);
+            elektroninių objektų talpykla;
+            statistikos duomenų bazė;
+            dokumentų atspaudų duomenų bazė;
+            eBiblioteka administracinių duomenų bazė;
+            Knygu duoenu baze ;
+            </p>
 
-    <table style="width:100%">
-        <tr>
-            <th>Book Name</th>
-            <th>Years</th>
-            <th>Type</th>
-            <th> Order</th>
-        </tr>
-        <tr>
-            <td>Harry Potter and the Deathly Hallows</td>
-            <td>Language Englis,2007</td>
-            <td>Fantastic</td>
-            <td>
-            <buttom  class="btn btn-warning">
-                <a href="/topics" class="nav-link px-2 text-white"></a>
-                <li><a href="/topics/booking" class="nav-link px-2 text-white">Booking</a></li>
-            </buttom></td>
+            <table style="width:100%">
+                <tr>
+                    <th>Book Name</th>
+                    <th>Years</th>
+                    <th>Type</th>
+                    <th> Order</th>
+                </tr>
+                <tr>
+                    <td>Harry Potter and the Deathly Hallows</td>
+                    <td>Language Englis,2007</td>
+                    <td>Fantastic</td>
+                    <td>
+                        <buttom class="btn btn-warning">
+                            <a href="/topics" class="nav-link px-2 text-white"></a>
+                            <li><a href="/topics/booking" class="nav-link px-2 text-white">Booking</a></li>
+                        </buttom>
+                    </td>
 
-        </tr>
-        <tr>
-            <td>Secret Lake</td>
-            <td>Language Englis,2011</td>
-            <td>History</td>
-            <td><buttom  class="btn btn-warning">
-                <a href="/topics" class="nav-link px-2 text-white"></a>
-                <li><a href="/topics/booking" class="nav-link px-2 text-white">Booking</a></li>
-            </buttom></td>
-        </tr>
-        <tr>
-            <td>Milk and Honey</td>
-            <td>Language Englis,2015</td>
-            <td>Adventure</td>
-            <td> <buttom  class="btn btn-warning">
-                <a href="/topics" class="nav-link px-2 text-white"></a>
-                <li><a href="/topics/booking" class="nav-link px-2 text-white">Booking</a></li>
-            </buttom></td>
-        </tr>
-    </table>
+                </tr>
+                <tr>
+                    <td>Secret Lake</td>
+                    <td>Language Englis,2011</td>
+                    <td>History</td>
+                    <td>
+                        <buttom class="btn btn-warning">
+                            <a href="/topics" class="nav-link px-2 text-white"></a>
+                            <li><a href="/topics/booking" class="nav-link px-2 text-white">Booking</a></li>
+                        </buttom>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Milk and Honey</td>
+                    <td>Language Englis,2015</td>
+                    <td>Adventure</td>
+                    <td>
+                        <buttom class="btn btn-warning">
+                            <a href="/topics" class="nav-link px-2 text-white"></a>
+                            <li><a href="/topics/booking" class="nav-link px-2 text-white">Booking</a></li>
+                        </buttom>
+                    </td>
+                </tr>
+            </table>
 
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-    </ul>
-</div>
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            </ul>
+        </div>
 
-</body>
-    <footer>
-    <p class="text-center text-muted">© 2021 Company, Inc</p>
-    </footer>
-</main>
+        </body>
+        <footer>
+            <p class="text-center text-muted">© 2021 Company, Inc</p>
+        </footer>
+    </main>
 
 </aside>
 

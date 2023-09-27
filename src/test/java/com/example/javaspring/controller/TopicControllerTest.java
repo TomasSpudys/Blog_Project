@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
-// test slice
+
 @WebMvcTest(TopicController.class)
 class TopicControllerTest {
 
@@ -56,10 +56,7 @@ class TopicControllerTest {
                 .andExpect(model().attributeExists("topic"))
                 .andExpect(content().string(containsString("Some very special topic title")))
                 .andExpect(content().string(containsString("Some very special topic header")));
-//  xpath matcher is supposed to verify xml  (html is extension of it, containing lots of new things, not allowed by xpath)
-//  ... you're gonna use it fot verifying SOAP services
-//                .andExpect(xpath("/html/body/main/div/h3").string("Some very special topic title"))
-//                .andExpect(xpath("/html/body/main/div/section").string("Some very special topic header"));
+
     }
 
     @Test
@@ -71,7 +68,7 @@ class TopicControllerTest {
         userSubmittedNewTopic.setHeader("Some very special topic header");
         userSubmittedNewTopic.setTitle("Some very special topic title");
 
-        //when-then
+
         mockMvc.perform(post("/topics/add")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("title", "Some very special topic title")

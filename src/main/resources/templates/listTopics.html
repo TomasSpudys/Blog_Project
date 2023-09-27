@@ -2,22 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <style>
-.pagination {
-	display: inline-block;
-}
+    .pagination {
+        display: inline-block;
+    }
 
-.pagination a {
-	color: black;
-	float: left;
-	padding: 5px 5px;
-	text-decoration: none;
-}
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 5px 5px;
+        text-decoration: none;
+    }
 
-.pagination a.active {
-	background-color: gray;
-	color: white;
-	border-radius: 2px;
-}
+    .pagination a.active {
+        background-color: gray;
+        color: white;
+        border-radius: 2px;
+    }
 </style>
 <head>
     <title>Topics List</title>
@@ -27,16 +27,16 @@
 <table border="1">
     <thead>
     <tr>
-        <th th:text="ID" />
-        <th th:text="NAME" />
+        <th th:text="ID"/>
+        <th th:text="NAME"/>
     </tr>
     </thead>
     <tbody>
     <tr th:each="topic, iStat : ${topicPage.content}"
         th:style="${iStat.odd}? 'font-weight: bold;'"
         th:alt-title="${iStat.even}? 'even' : 'odd'">
-        <td th:text="${topic.id}" />
-        <td th:text="${topic.title}" />
+        <td th:text="${topic.id}"/>
+        <td th:text="${topic.title}"/>
     </tr>
     </tbody>
 </table>

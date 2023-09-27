@@ -1,5 +1,7 @@
 package com.example.javaspring.entity;
+
 import javax.persistence.*;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -26,6 +26,7 @@ public class RegistrationController {
 
         return "registration";
     }
+
     @PostMapping
     public String addUser(@Valid User user, BindingResult bindingResult, Model model) {
         if (!userService.addUser(user)) {

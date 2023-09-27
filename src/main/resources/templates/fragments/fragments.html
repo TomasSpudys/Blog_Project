@@ -11,7 +11,7 @@
 </head>
 <body>
 <header th:fragment="header" class="p-3 mb-2 bg-secondary text-white">
-    <img th:src="@{images/page.jpg}"/>
+    <img th:src="@{/images/page.jpg}"/>
     <script class="tex/javascript" th:src="@{/images/scripts.js}" defer></script>
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/static" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -24,7 +24,6 @@
             <li><a href="/topics/about" class="nav-link px-2 text-white">About</a></li>
             <li><a href="/topics/contact" class="nav-link px-2 text-white">Contact</a></li>
 
-
         </ul>
         <form>
             Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required/>
@@ -34,7 +33,6 @@
             <button th:text="#{lang.eng}" class="btn btn-dark dropdown-toggle me-2" type="button" id="langSelectBtn"
                     data-bs-toggle="dropdown" aria-expanded="false">
                 EN
-
 
             </button>
 
@@ -76,6 +74,5 @@
 </main>
 
 </body>
-
 
 </html>

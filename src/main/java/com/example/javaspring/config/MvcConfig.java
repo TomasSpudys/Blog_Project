@@ -16,7 +16,6 @@ import java.util.Locale;
 @ComponentScan(basePackages = "com.example.javaspring")
 
 
-
 public class MvcConfig implements WebMvcConfigurer {
 
     @Bean

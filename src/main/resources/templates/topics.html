@@ -37,7 +37,6 @@
 
 <body style=" color:blue">
 
-
 <main>
 
     <div class="container mt-5 mb-1">
@@ -49,7 +48,6 @@
             <th scope="col" th:text="#{Action}">Action</th>
         </tr>
     </div>
-
     <div th:each="topic, i: *{topics}">
         <th scope="row"
             th:text="${topics.getPageable().getPageNumber() * topics.getPageable().getPageSize() + i.index + 1}"></th>
@@ -73,12 +71,7 @@
     </div>
     <div>
 
-    <buttom  class="btn btn-warning">
-        <a href="/topics" class="nav-link px-2 text-white"></a>
-        <li><a href="/topics/top" class="nav-link px-2 text-white">Booking</a></li>
-    </buttom>
-
-        </div>
+    </div>
     <h1>New topic submission form</h1>
     <a th:href="@{/topics/add}">Go to Create Topic Form page </a>
 
